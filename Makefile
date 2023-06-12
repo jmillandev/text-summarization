@@ -1,4 +1,7 @@
-default: dev
+default: up
 
-dev:
-	uvicorn app.main:app --reload
+up:
+	docker-compose up -d --build
+
+build:
+	docker-compose build
