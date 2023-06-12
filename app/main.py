@@ -5,11 +5,11 @@ app = FastAPI()
 
 
 @app.get('/healthcheck')
-def healthcheck():
+async def healthcheck():
     return 'OK'
 
 @app.get("/ping")
-def pong(settings: Settings = Depends(get_settings)):
+async def pong(settings: Settings = Depends(get_settings)):
     return {
         "ping": "pong!",
         "environment": settings.environment,
