@@ -5,9 +5,10 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install system dependencies
-RUN apt-get update \
-  && apt-get -y install netcat gcc \
+# Update system and install base dependencies 
+RUN apt-get update && apt-get -y install gcc \
+  # Network utilities
+  netcat \
   # Database dependencies
   postgresql \
   # Cleaning
