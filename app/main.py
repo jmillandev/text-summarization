@@ -1,6 +1,6 @@
 import os
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Response
 from tortoise.contrib.fastapi import register_tortoise
 
 from app.config import get_settings, Settings
@@ -18,7 +18,8 @@ register_tortoise(
 
 @app.get('/healthcheck')
 async def healthcheck():
-    return 'OK'
+    return Response('OK')
+
 
 @app.get("/ping")
 async def pong(settings: Settings = Depends(get_settings)):
